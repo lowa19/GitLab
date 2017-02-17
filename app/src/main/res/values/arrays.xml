@@ -13,6 +13,7 @@
         <item>@mipmap/evan</item>
         <item>@mipmap/devin</item>
         <item>@mipmap/cole_image</item>
+        <item>@mipmap/heihei</item>
     </array>
 
     <string-array name="spinner_names">
@@ -23,6 +24,7 @@
         <item>Evan Sterba</item>
         <item>Devin Ajimine</item>
         <item>Cole Farnch</item>
+        <item>Surprise</item>
     </string-array>
 
 </resources>
