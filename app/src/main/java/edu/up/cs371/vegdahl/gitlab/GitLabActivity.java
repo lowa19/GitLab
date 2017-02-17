@@ -18,8 +18,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class GitLabActivity extends ActionBarActivity {
@@ -33,6 +36,8 @@ public class GitLabActivity extends ActionBarActivity {
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
+
+    private TextView editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -42,7 +47,9 @@ public class GitLabActivity extends ActionBarActivity {
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
-
+        editText = (TextView)findViewById(R.id.editText);
+        Button upperCase = (Button)findViewById(R.id.button6);
+        upperCase.setOnClickListener(new upperCaseListener());
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
@@ -75,6 +82,16 @@ public class GitLabActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+    }
+
+    private class upperCaseListener implements Button.OnClickListener
+    {
+        public void onClick(View v)
+        {
+            String temp;
+            temp = editText.getText().toString().toUpperCase();
+            editText.setText(temp);
+        }
     }
 
     /**
