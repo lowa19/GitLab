@@ -62,6 +62,7 @@ public class GitLabActivity extends ActionBarActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // bind the spinner and adapter
 
+
         spinner.setAdapter(adapter);
 
         // load the images from the resources
