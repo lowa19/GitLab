@@ -1,5 +1,6 @@
 package edu.up.cs371.vegdahl.gitlab;
 
+
 /**
  * class GitModActivity
  *
