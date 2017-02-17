@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,25 +20,25 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class GitLabActivity extends ActionBarActivity {
+public class GitLabActivity extends AppCompatActivity {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
-
+    private Spinner spinner;
+    private EditText editText;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
-
-    private TextView editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,7 +54,7 @@ public class GitLabActivity extends ActionBarActivity {
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        spinner = (Spinner)findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -61,9 +62,6 @@ public class GitLabActivity extends ActionBarActivity {
                 android.R.layout.simple_list_item_1, android.R.id.text1, spinnerNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // bind the spinner and adapter
-
-
-
         spinner.setAdapter(adapter);
 
         // load the images from the resources
@@ -85,6 +83,17 @@ public class GitLabActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        //LAB PART2 PERSON1
+        Button copyButton = (Button)findViewById(R.id.copyNameButton);
+        copyButton.setOnClickListener(new CopyButtonListener());
+    }
+    private class CopyButtonListener implements Button.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            editText.append(spinner.getSelectedItem().toString());
+        }
     }
 
     private class upperCaseListener implements Button.OnClickListener
