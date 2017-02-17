@@ -23,8 +23,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GitLabActivity extends AppCompatActivity {
 
@@ -35,7 +35,6 @@ public class GitLabActivity extends AppCompatActivity {
     private ImageView imageView; // the view that shows the image
     private Spinner spinner;
     private EditText editText;
-
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -50,6 +49,8 @@ public class GitLabActivity extends AppCompatActivity {
         imageView = (ImageView)findViewById(R.id.imageView);
         editText = (EditText) findViewById(R.id.editText);
         Button upperCase = (Button)findViewById(R.id.button6);
+        Button random = (Button)findViewById(R.id.randomButton);
+        random.setOnClickListener(new randomButtonListener());
         upperCase.setOnClickListener(new upperCaseListener());
 
         Button nospace = (Button)findViewById(R.id.nospaceButton);
@@ -85,7 +86,7 @@ public class GitLabActivity extends AppCompatActivity {
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
         }
-
+        
 
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
@@ -99,6 +100,12 @@ public class GitLabActivity extends AppCompatActivity {
 
         Button reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(new ReverseButtonListener());
+
+        Button noPuncButton = (Button)findViewById(R.id.noPuncButton);
+        noPuncButton.setOnClickListener(new PunctuationButtonListener());
+
+        Button alternateButton = (Button)findViewById(R.id.button2);
+        alternateButton.setOnClickListener(new AlternateButtonListener());
     }
     private class nospaceButtonListener implements Button.OnClickListener
     {
@@ -110,6 +117,58 @@ public class GitLabActivity extends AppCompatActivity {
         }
     }
 
+
+
+    private class randomButtonListener implements Button.OnClickListener
+    {
+
+        @Override
+        public void onClick(View v) {
+            String temp = editText.getText().toString();
+            int length = temp.length();
+            //int rand = (int)Math.random()*length;
+            Random r = new Random();
+            int index = r.nextInt(length);
+            char c = (char)(r.nextInt(26) + 'a');
+            temp = temp.substring(0,index+1) + c + temp.substring(index+1);
+            editText.setText(temp);
+
+        }
+    }
+
+    private class AlternateButtonListener implements Button.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            String text = editText.getText() + "";
+            text = alternateCases(text);
+            editText.setText(text);
+        }
+    }
+
+    private String alternateCases(String orig)
+    {
+        String alt = "";
+        String temp = "";
+
+        for (int i = 0; i < orig.length(); i++)
+        {
+            if (i % 2 == 0)
+            {
+                temp = orig.substring(i, i+1);
+                temp = temp.toUpperCase();
+            }
+            else
+            {
+                temp = orig.substring(i, i+1);
+                temp = temp.toLowerCase();
+            }
+
+            alt = alt + temp;
+        }
+
+        return alt;
+    }
 
     private class CopyButtonListener implements Button.OnClickListener
     {
@@ -210,6 +269,15 @@ public class GitLabActivity extends AppCompatActivity {
             String text = "" + editText.getText();
             text = reverseString(text);
             editText.setText(text);
+        }
+    }
+
+    private class PunctuationButtonListener implements Button.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            editText.setText(editText.getText().toString().replaceAll("[^a-zA-Z\\s]", "").replaceAll("\\s+", " "));
         }
     }
 
