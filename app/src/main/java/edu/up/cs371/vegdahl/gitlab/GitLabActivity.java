@@ -48,7 +48,7 @@ public class GitLabActivity extends AppCompatActivity {
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
-        editText = (TextView)findViewById(R.id.editText);
+        editText = (EditText) findViewById(R.id.editText);
         Button upperCase = (Button)findViewById(R.id.button6);
         upperCase.setOnClickListener(new upperCaseListener());
         // Set up the spinner so that it shows the names in the spinner array resources
