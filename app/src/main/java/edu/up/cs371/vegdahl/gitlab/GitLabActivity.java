@@ -49,7 +49,7 @@ public class GitLabActivity extends AppCompatActivity {
 
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
-        editText = (TextView) findViewById(R.id.editText);
+        editText = (EditText) findViewById(R.id.editText);
 
         Button clearButton = (Button)findViewById(R.id.clearButton);
         clearButton.setOnClickListener(new clearButtonListener());
