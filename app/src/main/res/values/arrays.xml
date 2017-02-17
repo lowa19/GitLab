@@ -10,6 +10,9 @@
         <item>@mipmap/nuxoll</item>
         <item>@mipmap/vegdahl</item>
         <item>@mipmap/alow</item>
+        <item>@mipmap/evan</item>
+        <item>@mipmap/devin</item>
+        <item>@mipmap/cole_image</item>
     </array>
 
     <string-array name="spinner_names">
@@ -17,6 +20,9 @@
         <item>Dr. Andrew Nuxoll</item>
         <item>Dr. Steven Vegdahl</item>
         <item>Adrian Low</item>
+        <item>Evan Sterba</item>
+        <item>Devin Ajimine</item>
+        <item>Cole Farnch</item>
     </string-array>
 
 </resources>
