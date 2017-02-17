@@ -9,6 +9,8 @@
         <item>@mipmap/kitten</item>
         <item>@mipmap/nuxoll</item>
         <item>@mipmap/vegdahl</item>
+        <item>@mipmap/evan</item>
+        <item>@mipmap/devin</item>
         <item>@mipmap/cole_image</item>
     </array>
 
@@ -16,6 +18,8 @@
         <item>Sleeping Kitten</item>
         <item>Dr. Andrew Nuxoll</item>
         <item>Dr. Steven Vegdahl</item>
+        <item>Evan Sterba</item>
+        <item>Devin Ajimine</item>
         <item>Cole Farnch</item>
     </string-array>
 
