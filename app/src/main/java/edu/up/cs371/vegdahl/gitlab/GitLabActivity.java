@@ -23,8 +23,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GitLabActivity extends AppCompatActivity {
 
@@ -49,6 +49,8 @@ public class GitLabActivity extends AppCompatActivity {
         imageView = (ImageView)findViewById(R.id.imageView);
         editText = (EditText) findViewById(R.id.editText);
         Button upperCase = (Button)findViewById(R.id.button6);
+        Button random = (Button)findViewById(R.id.randomButton);
+        random.setOnClickListener(new randomButtonListener());
         upperCase.setOnClickListener(new upperCaseListener());
 
         Button clearButton = (Button)findViewById(R.id.clearButton);
@@ -98,6 +100,23 @@ public class GitLabActivity extends AppCompatActivity {
 
         Button alternateButton = (Button)findViewById(R.id.button2);
         alternateButton.setOnClickListener(new AlternateButtonListener());
+    }
+
+    private class randomButtonListener implements Button.OnClickListener
+    {
+
+        @Override
+        public void onClick(View v) {
+            String temp = editText.getText().toString();
+            int length = temp.length();
+            //int rand = (int)Math.random()*length;
+            Random r = new Random();
+            int index = r.nextInt(length);
+            char c = (char)(r.nextInt(26) + 'a');
+            temp = temp.substring(0,index+1) + c + temp.substring(index+1);
+            editText.setText(temp);
+
+        }
     }
 
     private class AlternateButtonListener implements Button.OnClickListener {
