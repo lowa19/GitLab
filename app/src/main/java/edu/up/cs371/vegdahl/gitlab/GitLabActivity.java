@@ -63,6 +63,7 @@ public class GitLabActivity extends ActionBarActivity {
         // bind the spinner and adapter
 
 
+
         spinner.setAdapter(adapter);
 
         // load the images from the resources
