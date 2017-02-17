@@ -1,6 +1,4 @@
 package edu.up.cs371.vegdahl.gitlab;
-
-
 /**
  * class GitModActivity
  *
@@ -40,7 +38,6 @@ public class GitLabActivity extends AppCompatActivity {
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,6 +50,9 @@ public class GitLabActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText);
         Button upperCase = (Button)findViewById(R.id.button6);
         upperCase.setOnClickListener(new upperCaseListener());
+
+        Button clearButton = (Button)findViewById(R.id.clearButton);
+        clearButton.setOnClickListener(new clearButtonListener());
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
@@ -81,12 +81,12 @@ public class GitLabActivity extends AppCompatActivity {
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
         }
+        
 
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
         //LAB PART2 PERSON1
-
         Button copyButton = (Button)findViewById(R.id.copyNameButton);
         copyButton.setOnClickListener(new CopyButtonListener());
 
@@ -115,6 +115,14 @@ public class GitLabActivity extends AppCompatActivity {
         }
     }
 
+    private class clearButtonListener implements Button.OnClickListener
+    {
+
+        @Override
+        public void onClick(View v) {
+            editText.setText("");
+        }
+    }
     /**
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
      */
