@@ -35,6 +35,7 @@ public class GitLabActivity extends AppCompatActivity {
     private ImageView imageView; // the view that shows the image
     private Spinner spinner;
     private EditText editText;
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -50,6 +51,9 @@ public class GitLabActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText);
         Button upperCase = (Button)findViewById(R.id.button6);
         upperCase.setOnClickListener(new upperCaseListener());
+
+        Button nospace = (Button)findViewById(R.id.nospaceButton);
+        nospace.setOnClickListener(new nospaceButtonListener());
 
         Button clearButton = (Button)findViewById(R.id.clearButton);
         clearButton.setOnClickListener(new clearButtonListener());
@@ -96,6 +100,17 @@ public class GitLabActivity extends AppCompatActivity {
         Button reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(new ReverseButtonListener());
     }
+    private class nospaceButtonListener implements Button.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            editText.setText(editText.getText().toString().replaceAll("\\s+",""));
+
+        }
+    }
+
+
     private class CopyButtonListener implements Button.OnClickListener
     {
         @Override
