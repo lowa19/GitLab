@@ -6,6 +6,7 @@ package edu.up.cs371.vegdahl.gitlab;
  * images to be displayed.
  */
 
+
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -97,6 +98,9 @@ public class GitLabActivity extends AppCompatActivity {
 
         Button reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(new ReverseButtonListener());
+
+        Button noPuncButton = (Button)findViewById(R.id.noPuncButton);
+        noPuncButton.setOnClickListener(new PunctuationButtonListener());
 
         Button alternateButton = (Button)findViewById(R.id.button2);
         alternateButton.setOnClickListener(new AlternateButtonListener());
@@ -252,6 +256,15 @@ public class GitLabActivity extends AppCompatActivity {
             String text = "" + editText.getText();
             text = reverseString(text);
             editText.setText(text);
+        }
+    }
+
+    private class PunctuationButtonListener implements Button.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            editText.setText(editText.getText().toString().replaceAll("[^a-zA-Z\\s]", "").replaceAll("\\s+", " "));
         }
     }
 
