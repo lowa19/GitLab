@@ -84,7 +84,7 @@ public class GitLabActivity extends AppCompatActivity {
 
         //LAB PART2 PERSON1
         editText = (EditText)findViewById(R.id.editText);
-        Button copyButton = (Button)findViewById(R.id.button2);
+        Button copyButton = (Button)findViewById(R.id.copyNameButton);
         copyButton.setOnClickListener(new CopyButtonListener());
     }
     private class CopyButtonListener implements Button.OnClickListener
