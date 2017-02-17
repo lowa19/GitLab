@@ -136,6 +136,7 @@ public class GitLabActivity extends ActionBarActivity {
          * @see android.widget.AdapterView.OnItemSelectedListener#onNothingSelected(
          *                  android.widget.AdapterView)
          */
+
         @Override
         public void onNothingSelected(AdapterView<?> parentView) {
             // your code here
