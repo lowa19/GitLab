@@ -175,6 +175,7 @@ public class GitLabActivity extends AppCompatActivity {
         public void onNothingSelected(AdapterView<?> parentView) {
             // your code here
         }
+
     }
 
     private class LowerButtonListener implements Button.OnClickListener {
