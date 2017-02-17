@@ -18,8 +18,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class GitLabActivity extends ActionBarActivity {
@@ -29,7 +32,7 @@ public class GitLabActivity extends ActionBarActivity {
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
-
+    private TextView editText;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -40,9 +43,14 @@ public class GitLabActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_git_lab);
 
+
+
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
+        editText = (TextView) findViewById(R.id.editText);
 
+        Button clearButton = (Button)findViewById(R.id.clearButton);
+        clearButton.setOnClickListener(new clearButtonListener());
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
@@ -77,6 +85,14 @@ public class GitLabActivity extends ActionBarActivity {
 
     }
 
+    private class clearButtonListener implements Button.OnClickListener
+    {
+
+        @Override
+        public void onClick(View v) {
+            editText.setText("");
+        }
+    }
     /**
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
      */

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GitLab.iml" filepath="$PROJECT_DIR$/GitLab.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/srvegdahl-CS371GitLabStarter2Working-master.iml" filepath="$PROJECT_DIR$/srvegdahl-CS371GitLabStarter2Working-master.iml" />
     </modules>
