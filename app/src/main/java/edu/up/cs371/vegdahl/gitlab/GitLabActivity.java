@@ -22,7 +22,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -86,7 +85,6 @@ public class GitLabActivity extends AppCompatActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
-        //LAB PART2 PERSON1
         Button copyButton = (Button)findViewById(R.id.copyNameButton);
         copyButton.setOnClickListener(new CopyButtonListener());
 
@@ -95,6 +93,9 @@ public class GitLabActivity extends AppCompatActivity {
 
         Button reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(new ReverseButtonListener());
+
+        Button noPuncButton = (Button)findViewById(R.id.noPuncButton);
+        noPuncButton.setOnClickListener(new PunctuationButtonListener());
     }
     private class CopyButtonListener implements Button.OnClickListener
     {
@@ -195,6 +196,15 @@ public class GitLabActivity extends AppCompatActivity {
             String text = "" + editText.getText();
             text = reverseString(text);
             editText.setText(text);
+        }
+    }
+
+    private class PunctuationButtonListener implements Button.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            editText.setText(editText.getText().toString().replaceAll("[^a-zA-Z\\s]", "").replaceAll("\\s+", " "));
         }
     }
 
