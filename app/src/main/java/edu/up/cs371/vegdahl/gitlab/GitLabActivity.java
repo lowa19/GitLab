@@ -39,6 +39,7 @@ public class GitLabActivity extends AppCompatActivity {
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -84,8 +85,15 @@ public class GitLabActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
         //LAB PART2 PERSON1
+
         Button copyButton = (Button)findViewById(R.id.copyNameButton);
         copyButton.setOnClickListener(new CopyButtonListener());
+
+        Button lowerButton = (Button)findViewById(R.id.button7);
+        lowerButton.setOnClickListener(new LowerButtonListener());
+
+        Button reverseButton = (Button)findViewById(R.id.button4);
+        reverseButton.setOnClickListener(new ReverseButtonListener());
     }
     private class CopyButtonListener implements Button.OnClickListener
     {
@@ -158,6 +166,38 @@ public class GitLabActivity extends AppCompatActivity {
         public void onNothingSelected(AdapterView<?> parentView) {
             // your code here
         }
+    }
+
+    private class LowerButtonListener implements Button.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            String text = "" + editText.getText();
+            text = text.toLowerCase();
+            editText.setText(text);
+        }
+    }
+
+    private class ReverseButtonListener implements Button.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            String text = "" + editText.getText();
+            text = reverseString(text);
+            editText.setText(text);
+        }
+    }
+
+    private String reverseString(String orig)
+    {
+        String reverse = "";
+
+        for (int i = 0; i < orig.length(); i++)
+        {
+            reverse = reverse + orig.charAt(orig.length() - i - 1);
+        }
+
+        return reverse;
     }
 
 //    @Override
