@@ -77,6 +77,7 @@ public class GitLabActivity extends AppCompatActivity {
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
         }
+        
 
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
