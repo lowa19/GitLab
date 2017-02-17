@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -89,6 +90,7 @@ public class GitLabActivity extends AppCompatActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        //LAB PART2 PERSON1
         Button copyButton = (Button)findViewById(R.id.copyNameButton);
         copyButton.setOnClickListener(new CopyButtonListener());
 
