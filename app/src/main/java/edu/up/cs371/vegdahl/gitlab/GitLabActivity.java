@@ -6,6 +6,7 @@ package edu.up.cs371.vegdahl.gitlab;
  * images to be displayed.
  */
 
+
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
