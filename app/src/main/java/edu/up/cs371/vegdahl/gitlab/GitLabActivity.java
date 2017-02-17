@@ -95,7 +95,45 @@ public class GitLabActivity extends AppCompatActivity {
 
         Button reverseButton = (Button)findViewById(R.id.button4);
         reverseButton.setOnClickListener(new ReverseButtonListener());
+
+        Button alternateButton = (Button)findViewById(R.id.button2);
+        alternateButton.setOnClickListener(new AlternateButtonListener());
     }
+
+    private class AlternateButtonListener implements Button.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            String text = editText.getText() + "";
+            text = alternateCases(text);
+            editText.setText(text);
+        }
+    }
+
+    private String alternateCases(String orig)
+    {
+        String alt = "";
+        String temp = "";
+
+        for (int i = 0; i < orig.length(); i++)
+        {
+            if (i % 2 == 0)
+            {
+                temp = orig.substring(i, i+1);
+                temp = temp.toUpperCase();
+            }
+            else
+            {
+                temp = orig.substring(i, i+1);
+                temp = temp.toLowerCase();
+            }
+
+            alt = alt + temp;
+        }
+
+        return alt;
+    }
+
     private class CopyButtonListener implements Button.OnClickListener
     {
         @Override

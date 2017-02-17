@@ -133,6 +133,12 @@
             android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1"  />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alternate"
+            android:id="@+id/button2" />
     </LinearLayout>
 
     <Space
@@ -150,6 +156,12 @@
             android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="10"  />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button" />
 
         <LinearLayout
             android:orientation="vertical"
